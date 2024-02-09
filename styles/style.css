@@ -1,10 +1,17 @@
 .page {
-    z-index: 0;
+    z-index: 1;
     position: relative;
 }
 
+.page::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+}
+
 .page__title {
-    z-index: 1;
     padding-top: 60px;
     font-size: 116px;
     letter-spacing: 4px;
@@ -19,7 +26,10 @@
     font: inherit;
 }
 
-.page__title:active::before,
+.page__title:hover {
+    color : #4d4d4d;
+}
+
 .page__title:hover::before {
     margin-top: 120px;
     padding: 36px 44px;
@@ -35,7 +45,7 @@
     font-weight: 400;
     position: absolute;
     right: 22px;
-    z-index: 2;
+    z-index: 3;
     content: 'На самом деле нет.\AВажнее &mdash; научиться ошибаться.';
     white-space: pre;
     box-shadow: 0 14px 0 0 #000;
@@ -48,14 +58,5 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: -1;
-}
-
-.page:has(.page__title:hover)::after,
-.page:has(.page__title:active)::after{
-    position: absolute;
-    inset: 0;
-    content: '';
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.3);
+    z-index: -2;
 }
