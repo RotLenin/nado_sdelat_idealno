@@ -19,6 +19,7 @@
     font: inherit;
 }
 
+.page__title:active::before,
 .page__title:hover::before {
     margin-top: 120px;
     padding: 36px 44px;
@@ -50,10 +51,11 @@
     z-index: -1;
 }
 
-.page:has(.page__title:hover)::after {
+.page:has(.page__title:hover)::after,
+.page:has(.page__title:active)::after{
     position: absolute;
     inset: 0;
     content: '';
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
 }
